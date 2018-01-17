@@ -1,0 +1,10 @@
+#mapContainer{
+  width: 98vw;
+  height: 98vh;
+  position: relative;
+}
+mes-authentication-form{
+  display: flex;
+  justify-content: center;
+  
+}

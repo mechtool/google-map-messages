@@ -1,0 +1,9 @@
+<div class="filterContainer">
+  <div class="chartContainer">
+    <svg class="svgChart"></svg>
+    <div class="centerLine"></div>
+    <div #leftFilter (mousedown)="onDownFilter($event)" [style.right]="leftFilterStyle"  class="leftFilter"></div>
+    <div #rightFilter (mousedown)="onDownFilter($event)" [style.left]="rightFilterStyle" class="rightFilter"></div>
+  </div>
+</div>
+

@@ -1,0 +1,33 @@
+.mainFormCard{
+  min-width: 300px;
+  position: absolute;
+  top: 20%;
+  max-width: 900px;
+}
+.topText{
+  background-color: #e0ebff;
+  padding: 24px;
+  font-weight: 300;
+}
+mat-radio-button{
+  display: block;
+  margin: 10px;
+}
+button{
+  margin: 8px 4px;
+  min-width: auto;
+}
+button[mat-raised-button]{
+  background-color: #3b89ff;
+  padding: 4px 32px;
+  font-weight: 300;
+}
+mat-toolbar{
+  flex-wrap: wrap;
+  height: auto;
+  min-height: 64px;
+}
+mat-form-field{
+  display: block;
+  width: 70%;
+}
