@@ -2,26 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.0-rc.1.
 
-## Development server
+  <p>Это - тестовое задание компании "Матрешка", в котором необходимо отобразить набор данных в виде сообщений в чате на карте. Для этого необходимо было реализовать графический интерфейс фильтрации сообщений в разрезе элемента аналитики - календарная дата. Группировка сообщений выполнена по разрезу аналитики (свойства элемента сообщения) - центр-перефирия и геоточка(широта/долгота). Данные динамические, т.е. когда на сервер приходит сообщение чата, оно сразу распространяется всем подключенным клиентам и отображается и в фильтре, и на карте.<br>
+  Это приложение написано на "Angular 5", с использованием angular-CLI 1.6 с настройками сервисного рабочего, компановщиком Webpack.<br>
+  Сервер приложения - Host Firebase, с использованием базы данных Firebase database, с настроенной Cloud functions для загрузки первоначальных данных через библиотеку FireAdmin. На сервере настроена аутентификация (несколько типов) при старте приложения. В Git репозиторий заглянуть можно <a target="_blank" href="https://github.com/mechtool/google-map-messages.git">тут</a>, в нем лежит сырая версия приложения (до компиляции компановщиком и без файла конфигурации firebase).</p>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
