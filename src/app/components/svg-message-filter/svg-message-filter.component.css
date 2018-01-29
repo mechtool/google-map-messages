@@ -6,6 +6,8 @@
   right: 40px;
   border: 1px solid #8a8a8a;
   overflow: hidden;
+  user-select: none;
+
 }
 .chartContainer{
   position: absolute;
@@ -39,4 +41,30 @@
 .rightFilter{
   border-left: 1px solid #8a8a8a;
 
+}
+.chartTypeContainer{
+  position: absolute;
+  top: 0;
+  background-color: white;
+  height: 100vh;
+  overflow: auto;
+}
+
+.leftText,.rightText{
+  transform: rotate(270deg);
+  position: absolute;
+  top: 45%;
+  text-align: center;
+  font-weight: 600;
+}
+.leftText{
+  right: -15px;
+}
+.rightText{
+  left: -20px;
+}
+.whatIsThis{
+  position: absolute;
+  top : 18px;
+  left: 64px;
 }

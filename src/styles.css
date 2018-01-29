@@ -1,3 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 @import "./app/appTheme/theme.css";
 
+.loaderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh
+}
+.loaderContainer>img{
+  width: 64px;
+  height: 64px;
+}
+

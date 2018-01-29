@@ -9,7 +9,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class AuthenticationFormComponent{
 
   public formType = 'authGroup';
-  public formGroups : any ;
+  public formGroups : {[name : string] : FormGroup} ;
   public formHeaders = {authGroup : 'Для демонстрации реализации различных способов аутентификации, котрые предоставляет Firebase, эта форма предлагает аутентифицироваться в приложение через:',
     emailGroup : 'Аутентификация посредством email и password.' };
   @Input() public formVisibility = true;
@@ -17,7 +17,7 @@ export class AuthenticationFormComponent{
 
   constructor(public fb : FormBuilder){
     this.formGroups = { //группа форм для различной аутентификации
-      authGroup : this.fb.group({
+        authGroup : this.fb.group({
           authValue : '',
       }),
         emailGroup : this.fb.group( {
@@ -28,5 +28,13 @@ export class AuthenticationFormComponent{
   }
     onClickRadio($event){
        this.formType = $event.value;
+  }
+  onSubmit(){
+      if(!this.formGroups[this.formType].invalid){ //форма заполнена верно
+      
+      }
+      else {//в форме есть ошибки
+            debugger;
+      }
   }
 }

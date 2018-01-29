@@ -1,0 +1,38 @@
+<div class="formContainer" *ngIf="formVisibility">
+  <mat-card class="mainFormCard" >
+    <div class="topText">{{formHeaders[formType]}}</div>
+    <form #form class="authenticationForm" [ngSwitch]="formType" [formGroup]="formGroups[formType]" (submit)="onSubmit(form)"  novalidate>
+      <div *ngSwitchCase="'authGroup'" >
+        <mat-radio-group formControlName="authValue" (change)="onClickRadio($event)">
+          <mat-radio-button  value="emailGroup">Email и Password</mat-radio-button>
+          <mat-radio-button  value="phoneGroup">По телефону</mat-radio-button>
+          <mat-radio-button  value="googleGroup">Аккаунт Google</mat-radio-button>
+          <mat-radio-button  value="anonymousGroup">Анонимно</mat-radio-button>
+        </mat-radio-group>
+      </div>
+      <div *ngSwitchCase="'emailGroup'">
+        <mat-form-field>
+          <input matInput placeholder="email" formControlName="email">
+        </mat-form-field>
+        <mat-form-field>
+          <input type="password" matInput placeholder="password" formControlName="password">
+        </mat-form-field>
+        <button mat-raised-button color="primary">Регистрация</button>
+        <button mat-raised-button color="primary">Вход</button>
+        <button mat-raised-button color="primary">Восстановить пароль</button>
+        <button mat-raised-button color="primary">Отправить подтверждающий email</button>
+        <button mat-raised-button color="primary" (click)="formType ='authGroup'" >Назад</button>
+      </div>
+      <div *ngSwitchCase="'googleGroup'">
+        <label>Email google
+          <input formControlName="email">
+        </label>
+        <label>Password google
+          <input formControlName="password">
+        </label>
+      </div>
+    </form>
+
+  </mat-card>
+</div>
+

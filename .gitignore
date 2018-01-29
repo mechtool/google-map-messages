@@ -42,3 +42,8 @@ testem.log
 Thumbs.db
 /e2e/
 /functions/node_modules/
+/functions/firebase-debug.log
+/dist/
+/src/environments/
+/karma.conf.js
+/protractor.conf.js

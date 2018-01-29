@@ -1,0 +1,51 @@
+<div class="filterContainer">
+  <div #chartContainer class="chartContainer">
+    <svg class="svgChart" [ngSwitch]="switchGroup" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="GradientPolyCenter">
+          <stop offset="0%" stop-color="#d3d3d3"></stop>
+          <stop [attr.offset]="(100 - leftFilterStyle)+'%'" stop-color="#d3d3d3"></stop>
+          <stop [attr.offset]="(100 - leftFilterStyle)+'%'" stop-color="#4803FF"></stop>
+          <stop [attr.offset]="rightFilterStyle +'%'" stop-color="#4803FF"></stop>
+          <stop [attr.offset]="rightFilterStyle +'%'" stop-color="#d3d3d3"></stop>
+          <stop offset="100%" stop-color="#d3d3d3"></stop>
+        </linearGradient>
+        <linearGradient id="GradientPolyMargin">
+          <stop offset="0%" stop-color="#d3d3d3"></stop>
+          <stop [attr.offset]="(100 - leftFilterStyle) +'%'" stop-color="#d3d3d3"></stop>
+          <stop [attr.offset]="(100 - leftFilterStyle) +'%'" stop-color="#FFCA00"></stop>
+          <stop [attr.offset]="rightFilterStyle +'%'" stop-color="#FFCA00"></stop>
+          <stop [attr.offset]="rightFilterStyle +'%'" stop-color="#d3d3d3"></stop>
+          <stop offset="100%" stop-color="#d3d3d3"></stop>
+        </linearGradient>
+      </defs>
+      <g class="rectGroup" *ngSwitchCase="'Столбчатый'">
+        <rect  *ngFor="let rect of rects" [attr.fill]="rect.fill" [attr.x]="rect.x " [attr.y]="rect.y" [attr.height]="(rectHeight * rect.messArr.length)+'%'" [attr.width]="rectWidth + '%'" >
+            <title>{{rect.dateNumber | date : 'dd.MM.yyyy'}} {{'('+rect.messArr.length +' mess.)'}}</title>
+        </rect>
+      </g>
+      <g class="polyGroup" *ngSwitchCase="'Полигональный'">
+        <polygon [attr.points]="polygons[1].join(' ')" fill="url(#GradientPolyCenter)">
+          <title>Центр</title>
+        </polygon>
+        <polygon [attr.points]="polygons[0].join(' ')" fill="url(#GradientPolyMargin)">
+          <title>Периферия</title>
+        </polygon>
+      </g>
+    </svg>
+    <div class="centerLine"></div>
+    <div #leftFilter (mousedown)="onDownFilter($event)" [style.right]="leftFilterStyle + '%'"  class="leftFilter">
+         <div class="leftText">{{leftDate | date}}</div>
+    </div>
+    <div #rightFilter (mousedown)="onDownFilter($event)" [style.left]="rightFilterStyle + '%'" class="rightFilter">
+         <div class="rightText">{{rightDate | date}}</div>
+    </div>
+  </div>
+</div>
+<button mat-mini-fab class="whatIsThis" (click)="onClickButton()">
+  <mat-icon aria-label="What is this">report</mat-icon>
+</button>
+<chart-type class="chartTypeContainer" *ngIf="activeType" (onSelectedType)="onSelectedType($event)" (onClickClose)="onClickButton()"></chart-type>
+
+
+

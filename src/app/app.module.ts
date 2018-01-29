@@ -4,17 +4,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HttpClientModule } from "@angular/common/http";
-
 //-----------------material---------------------------------------------
-import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatCardModule, MatRadioModule, MatFormFieldModule, MatInputModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatCardModule, MatRadioModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, MatIconModule} from '@angular/material';
 //----------------components----------------------------------
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
-import { AuthenticationFormComponent } from './componenrs/aunthentication-form/authentication-form.component';
-import { SvgMessageFilterComponent } from './componenrs/svg-message-filter/svg-message-filter.component';
+import { AuthenticationFormComponent } from './components/aunthentication-form/authentication-form.component';
+import { SvgMessageFilterComponent } from './components/svg-message-filter/svg-message-filter.component';
+import { ChartTypeComponent } from "./components/chart-types/chart-type.component";
 //-----------services-------------------------------------------
 import { GisService } from './services/Gis.service';
-import { FireStoreService } from './services/firebase-cloud-firestore/firestore.service';
 
 
 @NgModule({
@@ -22,6 +21,7 @@ import { FireStoreService } from './services/firebase-cloud-firestore/firestore.
     AppComponent,
     AuthenticationFormComponent,
     SvgMessageFilterComponent,
+    ChartTypeComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,10 +37,11 @@ import { FireStoreService } from './services/firebase-cloud-firestore/firestore.
     MatRadioModule,
     MatInputModule,
     MatFormFieldModule,
+    MatAutocompleteModule,
+    MatIconModule,
   ],
   providers: [
     GisService,
-    FireStoreService,
   ],
   bootstrap: [AppComponent]
 })

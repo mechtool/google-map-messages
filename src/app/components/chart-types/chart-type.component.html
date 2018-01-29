@@ -1,0 +1,21 @@
+<mat-card class="chartTypeContainer" >
+  <h4>Что это такое?
+    <i class="material-icons" (click)="onClickCross()" style="position: absolute; right: 16px; color: #a3a3a3;width: 25px; cursor: pointer;">close</i>
+  </h4>
+  <p>Это - тестовое задание компании "Матрешка", в котором необходимо отобразить набор данных в виде сообщений в чате на карте. Для этого необходимо было реализовать графический интерфейс фильтрации сообщений в разрезе элемента аналитики - календарная дата. Группировка сообщений выполнена по разрезу аналитики (свойства элемента сообщения) - центр-перефирия и геоточка(широта/долгота). Данные динамические, т.е. когда на сервер приходит сообщение чата, оно сразу распространяется всем подключенным клиентам и отображается и в фильтре, и на карте.<br>
+  Это приложение написано на "Angular 5", с использованием angular-CLI 1.6 с настройками сервисного рабочего, компановщиком Webpack.<br>
+  Сервер приложения - Host Firebase, с использованием базы данных Firebase database, с настроенной Cloud functions для загрузки первоначальных данных через библиотеку FireAdmin. На сервере настроена аутентификация (несколько типов) при старте приложения. В Git репозиторий заглянуть можно <a target="_blank" href="">тут</a>, в нем лежит сырая версия приложения (до компиляции компановщиком).<br>
+  Ниже, располагаются настройки приложения: выбор типа графика .</p>
+  <form class="chart-form" [formGroup]="form" novalidate>
+    <mat-form-field class="chart-full-width" style="width: 100%;">
+      <input matInput placeholder="Тип графика" aria-label="тип графика" [matAutocomplete]="auto"  formControlName="typeCtrl">
+      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onSelected($event)">
+        <mat-option *ngFor="let type of filteredChartTypes | async" [value]="type.name">
+          <img style="vertical-align : middle;" aria-hidden src="{{type.img}}" height="25" />
+          <span>{{type.name}}</span>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+</mat-card>
+

@@ -3,7 +3,7 @@ const fireBaseConfig = {
   authDomain: "gis-message-bdccb.firebaseapp.com",
   databaseURL: "https://gis-message-bdccb.firebaseio.com",
   projectId: "gis-message-bdccb",
-  storageBucket: "",
+  storageBucket: "gis-message-bdccb.appspot.com",
   messagingSenderId: "226145250276"
 };
 export const environment = {
