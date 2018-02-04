@@ -1,38 +1,33 @@
 <div class="formContainer" *ngIf="formVisibility">
-  <mat-card class="mainFormCard" >
+  <mat-card class="mainFormCard" [@shakeForm]="triggerShakeForm" (@shakeForm.done)="animationEnd()">
     <div class="topText">{{formHeaders[formType]}}</div>
-    <form #form class="authenticationForm" [ngSwitch]="formType" [formGroup]="formGroups[formType]" (submit)="onSubmit(form)"  novalidate>
+    <form #form class="authenticationForm" [ngSwitch]="formType" [formGroup]="formGroups[formType]"  novalidate>
       <div *ngSwitchCase="'authGroup'" >
-        <mat-radio-group formControlName="authValue" (change)="onClickRadio($event)">
-          <mat-radio-button  value="emailGroup">Email и Password</mat-radio-button>
-          <mat-radio-button  value="phoneGroup">По телефону</mat-radio-button>
-          <mat-radio-button  value="googleGroup">Аккаунт Google</mat-radio-button>
-          <mat-radio-button  value="anonymousGroup">Анонимно</mat-radio-button>
+        <mat-radio-group formControlName="authValue" (change)="radioValue = $event.value">
+          <mat-radio-button  value="emailGroup" >Email и Password</mat-radio-button>
+          <mat-radio-button  value="googleGroup" >Аккаунт Google</mat-radio-button>
+          <mat-radio-button  value="anonymousGroup" >Анонимно</mat-radio-button>
         </mat-radio-group>
+        <button class="nextButton" mat-raised-button color="primary" [disabled]="!radioValue" (click)="onClickRadio()">Далее</button>
       </div>
-      <div *ngSwitchCase="'emailGroup'">
+      <div *ngSwitchCase="'emailGroup'" class="emailGroup">
         <mat-form-field>
           <input matInput placeholder="email" formControlName="email">
         </mat-form-field>
         <mat-form-field>
           <input type="password" matInput placeholder="password" formControlName="password">
         </mat-form-field>
-        <button mat-raised-button color="primary">Регистрация</button>
-        <button mat-raised-button color="primary">Вход</button>
-        <button mat-raised-button color="primary">Восстановить пароль</button>
-        <button mat-raised-button color="primary">Отправить подтверждающий email</button>
-        <button mat-raised-button color="primary" (click)="formType ='authGroup'" >Назад</button>
+        <button class="registrationButton" mat-raised-button color="primary" (click)="onClickEmailGroup($event)">Регистрация</button>
+        <button class="enterButton" mat-raised-button color="primary" (click)="onClickEmailGroup($event)">Вход</button>
+        <button class="repairButton" mat-raised-button color="primary" (click)="onClickEmailGroup($event)">Восстановить пароль</button>
+        <button mat-raised-button color="primary" (click)="onBack($event)" >Назад</button>
       </div>
-      <div *ngSwitchCase="'googleGroup'">
-        <label>Email google
-          <input formControlName="email">
-        </label>
-        <label>Password google
-          <input formControlName="password">
-        </label>
+      <div *ngSwitchCase="'userGroup'" class="userGroup" >
+        <div class="currentUser">Пользователь : {{authUser}}</div>
+        <button class="exitButton" title="Выйти из приложения" mat-raised-button color="primary" (click)="onClickUserGroup($event)" >Выйти</button>
+        <button class ="fartherButton" title="Продолжить работу" mat-raised-button color="primary" (click)="onClickUserGroup($event)">Далее</button>
       </div>
     </form>
-
   </mat-card>
 </div>
 

@@ -45,7 +45,7 @@
 <button mat-mini-fab class="whatIsThis" (click)="onClickButton()">
   <mat-icon aria-label="What is this">report</mat-icon>
 </button>
-<chart-type class="chartTypeContainer" *ngIf="activeType" (onSelectedType)="onSelectedType($event)" (onClickClose)="onClickButton()"></chart-type>
+<chart-type class="chartTypeContainer" [@flyInOut] *ngIf="activeType" (onSelectedType)="onSelectedType($event)" (onClickClose)="onClickButton() "></chart-type>
 
 
 

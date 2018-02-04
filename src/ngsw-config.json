@@ -27,7 +27,7 @@
     {
       "name": "messages-api",
       "urls": [
-        "https://gis-message-bdccb.firebaseio.com/messages"
+        "/messages"
       ],
       "cacheConfig": {
         "strategy": "performance",

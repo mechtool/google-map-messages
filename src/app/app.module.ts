@@ -14,6 +14,8 @@ import { SvgMessageFilterComponent } from './components/svg-message-filter/svg-m
 import { ChartTypeComponent } from "./components/chart-types/chart-type.component";
 //-----------services-------------------------------------------
 import { GisService } from './services/Gis.service';
+import { FireBaseService } from "./services/firebase.service";
+import { CommunicationService } from "./services/communication.service";
 
 
 @NgModule({
@@ -42,6 +44,8 @@ import { GisService } from './services/Gis.service';
   ],
   providers: [
     GisService,
+    FireBaseService,
+    CommunicationService,
   ],
   bootstrap: [AppComponent]
 })

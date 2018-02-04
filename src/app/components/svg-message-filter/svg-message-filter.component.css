@@ -67,4 +67,9 @@
   position: absolute;
   top : 18px;
   left: 64px;
+  background-color: #3b89ff;
 }
+.whatIsThis mat-icon{
+  color: white;
+}
+

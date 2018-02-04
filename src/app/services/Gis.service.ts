@@ -30,7 +30,7 @@ export class GisService{
     }
     
     
-    public setCircles(context  : any){ //
+  public setCircles(context  : any){ //
       let that = this;
       context.rects.forEach(rect => {
         let activeRect = rect.active;
@@ -48,6 +48,8 @@ export class GisService{
                 r = circleObj.circle.getRadius();
                 if(!innerMess){
                   innerMess = circleObj.mess[mess.id] = mess;
+                  circleObj.circle.setStyle({fillOpacity : (innerMess.active ? 0.8 : 0) });
+                  circleObj.circle.setRadius(innerMess.active ? r + 200 : r );
                 }
                 if(innerMess.active != activeRect){
                   r = activeRect ? r + 200 : innerMess.active == undefined ? r : r - 200;
@@ -57,9 +59,18 @@ export class GisService{
                 }
               })
         });
-      context.changeRef.detectChanges();
+    }
+    
+    public deleteCircles(){
+         for(let key in this.mapCircles){
+           let item = this.mapCircles[key];
+           item.circle.remove();
+         }
+      this.mapCircles = {};
     }
 }
+
+
 export class MessageRect{
   constructor( public x : string, public y : string, public fill : string, public messArr : any[], public dateNumber : number, public active = true, public center: number){}
 }
