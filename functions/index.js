@@ -4,13 +4,7 @@ const express = require("express") ;
 const cors = require('cors');
 
 fireAdmin.initializeApp({
-  credential : fireAdmin.credential.applicationDefault(),
-  apiKey: "AIzaSyANdoXC0pXgwavYarGIt_E2ptScC-QsulU",
-  authDomain: "gis-message-bdccb.firebaseapp.com",
-  databaseURL: "https://gis-message-bdccb.firebaseio.com",
-  projectId: "gis-message-bdccb",
-  storageBucket: "gis-message-bdccb.appspot.com",
-  messagingSenderId: "226145250276",
+
 });
 
 const jsonData = JSON.parse(JSON.stringify(require('./lib/messageDate-21-06-17.json')));
